@@ -12,20 +12,35 @@ export function Index() {
    * Note: The corresponding styles are in the ./index.scss file.
    */
 
+  const { data: list, isLoading } = useQuery(portfolioQuery());
 
-  const { data: stores, isLoading } =  useQuery(portfolioQuery());
-
-console.log(stores);
-
-
+  console.log(list);
 
   return (
     <div className={styles.page}>
-      {/* <Test testdatas={tesdatas} /> */}
+      <table>
+        <br />
+        <tr>
+          <th>#</th>
+          <th>FullName</th>
+          <th>Email</th>
+          <th>PhoneNumber</th>
+        </tr>
+        {list.map((data, i) => (
+          <>
+            <br />
+            <tr key={i}>
+              <td>{i + 1}</td>
+              <td>{data.fullName}</td>
+              <td>{data.email}</td>
+              <td>{data.phoneNumber}</td>
+            </tr>
+          </>
+        ))}
+      </table>
     </div>
   );
 }
-
 
 export const getServerSideProps: GetServerSideProps = async (
   context: GetServerSidePropsContext
@@ -41,7 +56,3 @@ export const getServerSideProps: GetServerSideProps = async (
 };
 
 export default Index;
-
-
-
-

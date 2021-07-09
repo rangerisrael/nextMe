@@ -10,14 +10,14 @@ export const portfolioQuery = () =>({
 
 export const httpTest =async ()=>
 {
-    const res = await fetch('http://localhost:3334/api/portfolio')
-  const tesdatas = await res.json();
+    const res = await fetch('http://localhost:3331/api/subscriber/list');
+  const httpServer = await res.json();
 
-  if (!tesdatas) {
+  if (!httpServer) {
     return {
       notFound: true,
     };
   }
 
-  return tesdatas;
+  return httpServer;
 }

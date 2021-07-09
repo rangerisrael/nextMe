@@ -1,9 +1,12 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
+import { SubscriberModule } from './api/subscriber/subcriber.module';
+
 
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import configuration from './config/configuration';
+import { DatabaseModule } from './database/database.module';
 
 @Module({
   imports: [
@@ -11,10 +14,11 @@ import configuration from './config/configuration';
       load: [configuration],
       isGlobal: true,
       cache: true,
-    })
-
+    }),
+    DatabaseModule,
+    SubscriberModule 
+     
   ],
-  controllers: [AppController],
-  providers: [AppService],
+
 })
 export class AppModule {}

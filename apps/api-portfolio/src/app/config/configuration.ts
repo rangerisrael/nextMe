@@ -39,8 +39,8 @@ export default (): Config => ({
     password: process.env.DB_PASSWORD,
   },
   swagger: {
-    title: process.env.SWAGGER_TITLE || 'Philex API',
-    description: process.env.SWAGGER_DESC || 'Philex API',
+    title: process.env.SWAGGER_TITLE || 'Portfolio API',
+    description: process.env.SWAGGER_DESC || 'Portfolio API',
   },
   // firebase: {
   //   projectId: process.env.FIREBASE_PROJECT_ID,
